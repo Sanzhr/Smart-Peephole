@@ -1,0 +1,52 @@
+#include <ESP32Servo.h>
+
+Servo doorServo;
+const int servoPin = 2;     
+
+bool doorOpen = false;
+unsigned long doorOpenTime = 0;
+const unsigned long autoCloseDelay = 3000;  
+
+void setup() {
+  Serial.begin(115200);
+  doorServo.attach(servoPin);
+  doorServo.write(90);    
+  Serial.println("System ready - awaiting commands...");
+}
+
+void loop() {
+  if (Serial.available() > 0) {
+    String command = Serial.readStringUntil('\n');
+    command.trim();
+
+    Serial.print("Received command: ");
+    Serial.println(command);
+
+    if ((command == "OPEN" || command == "MANUAL_OPEN") && !doorOpen) {
+      openDoor();
+    }
+    else if (command == "MANUAL_DENY") {
+      Serial.println("Access denied via Telegram");
+    }
+  }
+
+  if (doorOpen && millis() - doorOpenTime > autoCloseDelay) {
+    Serial.println("⌛️ Время вышло — закрываем дверь.");
+    closeDoor();
+  }
+
+  delay(100);  
+}
+
+void openDoor() {
+  doorServo.write(0);    
+  doorOpen = true;
+  doorOpenTime = millis();
+  Serial.println("🚪 Дверь открыта (в другую сторону) на 3 секунды.");
+}
+
+void closeDoor() {
+  doorServo.write(90);  
+  doorOpen = false;
+  Serial.println("🚪 Дверь закрыта.");
+}

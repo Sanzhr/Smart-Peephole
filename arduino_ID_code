@@ -1,7 +1,7 @@
 #include <ESP32Servo.h>
 
 Servo doorServo;
-const int servoPin = 2;     
+const int servoPin = "PIN connected to the ESP32";     
 
 bool doorOpen = false;
 unsigned long doorOpenTime = 0;

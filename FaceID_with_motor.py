@@ -10,12 +10,12 @@ import json
 import threading
 import time
 
-KNOWN_FACES_DIR = r"C:\Users\user\Desktop\known_faces"
+KNOWN_FACES_DIR = "Directory to your Databse with knwon faces"
 ENCODED_FACES_FILE = "face_data.dat"
-BOT_TOKEN = "7523195818:AAF7a-cAOG70kGO2whsglPuMxyH_olknXkE"
-CHAT_ID = "1599560625"
+BOT_TOKEN = "YOUR TELEGRAM BOT TOKEN"
+CHAT_ID = "YOUR TELEGRAM CHATID"
 UNLOCK_THRESHOLD = 0.4
-SERIAL_PORT = "COM5"
+SERIAL_PORT = "USB PORT NUMBER"
 BAUD_RATE = 115200
 DOOR_OPEN_DURATION = 3
 

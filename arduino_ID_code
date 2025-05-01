@@ -31,7 +31,7 @@ void loop() {
   }
 
   if (doorOpen && millis() - doorOpenTime > autoCloseDelay) {
-    Serial.println("⌛️ Время вышло — закрываем дверь.");
+    Serial.println("⌛️ Time's up - closing the door.");
     closeDoor();
   }
 
@@ -42,11 +42,11 @@ void openDoor() {
   doorServo.write(0);    
   doorOpen = true;
   doorOpenTime = millis();
-  Serial.println("🚪 Дверь открыта (в другую сторону) на 3 секунды.");
+  Serial.println("🚪 The door is open (in the other direction) for 3 seconds.");
 }
 
 void closeDoor() {
   doorServo.write(90);  
   doorOpen = false;
-  Serial.println("🚪 Дверь закрыта.");
+  Serial.println("🚪The door is closed.");
 }

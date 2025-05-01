@@ -26,8 +26,10 @@ Install using `pip install -r requirements.txt` or individually:
 Telegram Bot)
 - Telegram bot token from [@BotFather](https://t.me/BotFather)
 - Your Telegram user ID or group chat ID
-
+- 
 Configurations)
 BOT_TOKEN = 'your_bot_token_here'
 CHAT_ID = 'your_telegram_chat_id_here'
 SERIAL_PORT = 'COM3' (or '/dev/ttyUSB0' for Linux)
+
+

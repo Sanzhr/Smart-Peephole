@@ -32,4 +32,28 @@ BOT_TOKEN = 'your_bot_token_here'
 CHAT_ID = 'your_telegram_chat_id_here'
 SERIAL_PORT = 'COM3' (or '/dev/ttyUSB0' for Linux)
 
+Face Database Setup)
+The system uses a folder called known_faces/ to store the face database.
+Each subfolder inside known_faces/ represents one person. The name of the folder is treated as the person's name.
+For example=>
+known_faces/
+├── Alice/
+│   ├── Alice_1.jpg
+│   └── Alice_2.jpg
+├── Bob/
+│   └── bob_face.jpg
 
+You can add one or more clear photos of each person in their respective folder. During runtime, the system will load these faces and recognize them automatically.
+
+Notes)
+1)Ensure good lighting and clear face images for better recognition accuracy.
+2)You can improve performance by resizing frames in the code.
+3)For deployment, consider using a Raspberry Pi or Jetson Nano with USB camera and GPIO relay.
+
+Telegram Commands)
+You can control the system via Telegram bot. When an unknown face is detected, the bot sends a photo and shows buttons like:
+✅ Open Door – remotely open the door
+➕ Add to Database – add the person to the known faces
+🗑️ Delete Face – remove someone from the database
+
+...

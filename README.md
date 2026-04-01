@@ -49,4 +49,5 @@ The project combines computer vision, embedded systems, and remote control via m
 ## Face Database
 Faces are stored in the `known_faces/` directory.
 
-Structure example:
+## Video demonstration
+https://youtube.com/shorts/58mEUB9ICB0?feature=share
